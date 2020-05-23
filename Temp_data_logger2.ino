@@ -1,3 +1,4 @@
+
 #include <DHT.h>
 #include <SD.h>
 
@@ -64,6 +65,12 @@ void setup() {
 }
 
 void loop() {
+
+            unsigned long currentMillis = millis();
+
+      if (currentMillis - previousMillis >= interval) {
+        previousMillis = currentMillis;
+        
   // code you always run here; you can leave this section blank if you want the
   // entire program to stop and start, or add code here if you want it to
   // always run
@@ -186,7 +193,7 @@ Record++;
       }
       // update last heat index
       lastHeatIndex = HeatIndex;
-/*
+
       // Label "Record
       tft.setTextColor(WHITE);
       tft.setTextSize(1);
@@ -199,22 +206,15 @@ Record++;
       tft.setTextSize(2);
       tft.setCursor(10, 125);
       tft.println(lastRecord);
-
       // print the current "record"
       tft.setTextColor(PINK);
       tft.setTextSize(2);
       tft.setCursor(10, 125);
       tft.println(Record);
-
        lastRecord = Record;
-  */     
-
-            unsigned long currentMillis = millis();
-
-      if (currentMillis - previousMillis >= interval) {
-        previousMillis = currentMillis;
-
+       
       }
     }
   }
 }
+
